@@ -8,8 +8,10 @@
 3. Instalar Ubuntu en una máquina virtual:
    * Mínimo 2 CPU, 6GB de RAM y 50 GB de disco duro
 4. Comprobar si GIT esta instalado, si no:
-   * `sudo apt-get update`
-   * `sudo apt-get install git` 
+```bash
+  sudo apt-get update
+  sudo apt-get install git
+```
 5. Instalar Visual Studio Code (desde el centro de software de Ubuntu)
 6. Bajar e instalar el binario de Terraform. [Descargar](https://www.terraform.io/downloads.html)
 7. Instalar Docker. [Guía](https://docs.docker.com/engine/install/ubuntu/).
@@ -17,4 +19,9 @@
 8. Instalar docker compose. [Guía](https://docs.docker.com/compose/install/)
 9. Instalar minikube. [Guía](https://minikube.sigs.k8s.io/docs/start/)
     * Utilizar paquete Debian. **Solo hasta el paso 2**
-10. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). **Ojo con las versiones, leer bien la guía. Para saber la versión de minikube instalada ejecutar** `minikube version`
+10. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
+> **Ojo con las versiones en este último paso, leer bien la guía. 
+> Para saber la versión de minikube instalada ejecutar** 
+```bash
+minikube version
+```
