@@ -21,7 +21,16 @@
     * Utilizar paquete Debian. **Solo hasta el paso 2**
 10. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
 > **Ojo con las versiones en este último paso, leer bien la guía. 
-> Para saber la versión de minikube instalada ejecutar** 
+> Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes
+> En el siguiente ejemplo se está utilizando Kubernetes 1.20.0** 
 ```bash
-minikube version
+minikube start
+😄  minikube v1.16.0 on Ubuntu 20.04
+✨  Using the docker driver based on existing profile
+👍  Starting control plane node minikube in cluster minikube
+🔄  Restarting existing docker container for "minikube" ...
+🐳  Preparing Kubernetes v1.20.0 on Docker 20.10.0 ...
+🔎  Verifying Kubernetes components...
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
