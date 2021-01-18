@@ -21,7 +21,7 @@
     * Utilizar paquete Debian. **Solo hasta el paso 2**
 10. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
 > **Ojo con las versiones en este último paso, leer bien la guía. 
-> Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes
+> Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes.
 > En el siguiente ejemplo se está utilizando Kubernetes 1.20.0** 
 ```bash
 $ minikube start
