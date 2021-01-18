@@ -24,7 +24,7 @@
 > Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes
 > En el siguiente ejemplo se está utilizando Kubernetes 1.20.0** 
 ```bash
-minikube start
+$ minikube start
 😄  minikube v1.16.0 on Ubuntu 20.04
 ✨  Using the docker driver based on existing profile
 👍  Starting control plane node minikube in cluster minikube
