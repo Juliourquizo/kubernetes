@@ -7,6 +7,8 @@
 2. Descargar la imagen de Ubuntu Desktop 20.04 LTS. [Descargar](https://releases.ubuntu.com/20.04/)
 3. Instalar Ubuntu en una máquina virtual:
    * Mínimo 2 CPU, 6GB de RAM y 50 GB de disco duro
+   * Configurar también la siguiente opción:
+   ![alt text](https://github.com/evtsrc/kubernetes/blob/main/vmware_conf_1.png "VMWare Configuration")
 4. Comprobar si GIT esta instalado, si no:
 ```bash
   sudo apt-get update
