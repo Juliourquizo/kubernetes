@@ -122,10 +122,19 @@ kubectl get pv
 kubectl apply -f persistentvolumeclaim.yaml
 kubectl get pvc
 kubectl apply -f podwithvolume.yaml
+kubectl expose pod task-pv-pod --type=LoadBalancer --port=80
 minikube service task-pv-pod
 ```
 
 Probar a cambiar el html y ver que se ven los cambios.
+
+```bash
+# Limpieza
+kubectl delete pod task-pv-pod
+kubectl delete pvc task-pv-claim
+kubectl delete pv task-pv-volume
+kubectl delete service task-pv-pod
+```
 
 ## Autoescalado
 
@@ -176,7 +185,14 @@ kubectl delete deployment nginx-deployment
 
 ### Readiness
 
+```bash
 kubectl apply pod_readiness.yaml
 kubectl get pods -w
+```
 
 ### Liveness
+
+```bash
+kubectl apply pod_liveness.yaml
+kubectl get pods -w
+```
