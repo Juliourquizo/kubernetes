@@ -103,3 +103,26 @@ kubectl describe service hello-svc -n test-servicios
 minikube service hello-svc -n test-servicios
 kubectl delete service hello-svc -n test-servicios
 ```
+
+## Almacenamiento
+
+Para poder probar el almacenamiento lo que vamos a tener que hacer es crear un directorio en la home de nuestro usuario que se llame html y crear dentro un index.html con un texto de prueba
+```bash
+mkdir /home/tunombre/html
+cd /home/tunombre/html
+echo "<html><body>Mi html de prueba</body></html>" > index.html
+```
+Puesto que minikube es un docker, dentro hay que montar nuestro directorio para que después se tenga acceso. Para ello ejecutar:
+`minikube mount /home/tunombre/html/:/data/html`
+
+### PersistemVolume y PersistenVolumeClaim
+```bash
+kubectl apply -f persistentvolume.yaml
+kubectl get pv
+kubectl apply -f persistentvolumeclaim.yaml
+kubectl get pvc
+kubectl apply -f podwithvolume.yaml
+minikube service task-pv-pod
+```
+
+Probar a cambiar el html y ver que se ven los cambios.
