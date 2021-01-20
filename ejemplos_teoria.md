@@ -150,7 +150,7 @@ kubectl top pod POD_NAME
 # Para ver si aumentan los pods
 kubectl get deployments.apps -w
 ```
-> La bajada al mínimo tardará unos 5 minutos. Si queremos seguir podemos forzarlo
+> La bajada al mínimo tardará aprox. 5 minutos. Si queremos seguir podemos forzarlo
 > ejecutando `kubectl scale deployment nginx-deployment --replicas=1`
 
 > El número de pods al que sube tiene que ver con los valores límite. La fórmula es la siguiente
@@ -166,4 +166,17 @@ kubectl exec -it POD_NAME -- /bin/bash
 yes > /dev/null
 
 kubectl get deployments.apps -w
+
+# Limpieza
+kubectl delete hpa nginx-autoscaler
+kubectl delete deployment nginx-deployment 
 ```
+
+## Supervisión
+
+### Readiness
+
+kubectl apply pod_readiness.yaml
+kubectl get pods -w
+
+### Liveness
