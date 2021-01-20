@@ -1,15 +1,21 @@
 # Ejemplos teoría
 
 ## Autocompletado
+```bash
 source <(kubectl completion bash)
+```
 
 ## Namespaces
 
 ### Crear un namespace comando
+```bash
 kubectl create namespace first-namespace
+```
 
 ### Crear namespace con fichero
+```bash
 kubectl create -f namespace.yaml
+```
 
 ### Borrar namespace
 ```bash
@@ -35,7 +41,7 @@ kubectl describe pod new-nginx
 kubectl create namespace first-namespace
 # Crear pod en namespace diferente a default
 kubectl apply -f new_nginx_pod.yaml -n first-namespace 
-# Se obtienen pod de los diferentes namespaces
+# Consultar pods creados
 kubectl get pods
 kubectl get pods -n first-namespace
 # Comprobar en el describe el campo namespace 
@@ -46,8 +52,11 @@ kubectl delete pod new-nginx
 kubectl delete pod new-nginx -n first-namespace
 kubectl delete namespaces first-namespace
 ```
+
 ### Borrar el pod
+```bash
 kubectl delete pod new-nginx
+```
 
 ## Deployment
 
@@ -69,7 +78,9 @@ kubectl get pods -A -l app=nginx
 ```
 
 ### Limpieza
+```bash 
 kubectl delete deployment nginx-deployment
+```
 
 ## Servicios
 
@@ -106,14 +117,14 @@ kubectl delete service hello-svc -n test-servicios
 
 ## Almacenamiento
 
-Para poder probar el almacenamiento lo que vamos a tener que hacer es crear un directorio en la home de nuestro usuario que se llame html y crear dentro un index.html con un texto de prueba
+Para poder probar la creación de volúmenes lo que vamos a tener que hacer es crear un directorio que se llame html y crear dentro un index.html con un texto de prueba
 ```bash
-mkdir /home/tunombre/html
-cd /home/tunombre/html
+mkdir /home/endika/data
+cd /home/endika/data
 echo "<html><body>Mi html de prueba</body></html>" > index.html
 ```
 Puesto que minikube es un docker, dentro hay que montar nuestro directorio para que después se tenga acceso. Para ello ejecutar:
-`minikube mount /home/tunombre/html/:/data/html`
+`minikube mount /home/endika/data/:/data/html`
 
 ### PersistemVolume y PersistenVolumeClaim
 ```bash
@@ -148,6 +159,8 @@ Para poder utilizar el autoescalado con minikube hay que activar el addon metric
 kubectl apply -f nginx_deployment.yaml
 kubectl get deployments
 kubectl get pods
+# Podemos ver las métricas de la siguiente manera
+kubectl top pod POD_NAME 
 # Configurar el autoescalado
 kubectl autoscale deployment nginx-deployment --cpu-percent=50 --min=1 --max=5
 # Inducir carga en el pod levantado
