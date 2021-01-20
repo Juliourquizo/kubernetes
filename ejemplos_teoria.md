@@ -126,3 +126,44 @@ minikube service task-pv-pod
 ```
 
 Probar a cambiar el html y ver que se ven los cambios.
+
+## Autoescalado
+
+Para poder utilizar el autoescalado con minikube hay que activar el addon metric-server
+
+`minikube addons enable metrics-server`
+
+> Para que metrics comience a funcionar hay que esperar un tiempo.
+
+```bash
+kubectl apply -f nginx_deployment.yaml
+kubectl get deployments
+kubectl get pods
+# Configurar el autoescalado
+kubectl autoscale deployment nginx-deployment --cpu-percent=50 --min=1 --max=5
+# Inducir carga en el pod levantado
+kubectl exec -it POD_NAME -- /bin/bash
+yes > /dev/null
+
+# Para ver los valores de la monitorización
+kubectl top pod POD_NAME
+# Para ver si aumentan los pods
+kubectl get deployments.apps -w
+```
+> La bajada al mínimo tardará unos 5 minutos. Si queremos seguir podemos forzarlo
+> ejecutando `kubectl scale deployment nginx-deployment --replicas=1`
+
+> El número de pods al que sube tiene que ver con los valores límite. La fórmula es la siguiente
+> `desiredReplicas = ceil[currentReplicas * ( currentMetricValue / desiredMetricValue )]`
+
+Si lo probamos aplicando la definición en yaml pero esta vez con el 25% veremos que escala a 4 pods
+
+```bash
+kubectl delete hpa nginx-deployment
+kubectl apply -f horizontal_autoscaler.yaml
+# Inducir carga en el pod levantado
+kubectl exec -it POD_NAME -- /bin/bash
+yes > /dev/null
+
+kubectl get deployments.apps -w
+```
