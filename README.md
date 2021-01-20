@@ -31,12 +31,14 @@ sudo adduser `id -un` kvm
 virsh list --all
 # Reiniciar
 ```
+> Referencia: [link](https://help.ubuntu.com/community/KVM/Installation)
+
 10. Instalar minikube. [Guía](https://minikube.sigs.k8s.io/docs/start/)
     * Utilizar paquete Debian. **Solo hasta el paso 2**
 11. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
 > **Ojo con las versiones en este último paso, leer bien la guía. 
 > Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes.
-> En el siguiente ejemplo se está utilizando Kubernetes 1.20.0** 
+> En el siguiente ejemplo se está utilizando Kubernetes 1.20.0 (símbolo de la ballena)** 
 ```bash
 $ minikube start --driver=kvm2
 😄  minikube v1.16.0 on Ubuntu 20.04
