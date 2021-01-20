@@ -23,7 +23,7 @@
 8. Instalar docker compose. [Guía](https://docs.docker.com/compose/install/)
 9. Instalar kvm
 ```bash
-# Ejecutar los siguientes comandos. Tienes que dar diferente de 0 ambos
+# Ejecutar los siguientes comandos. Tienen que dar diferente de 0 ambos
 egrep -c '(vmx|svm)' /proc/cpuinfo
 egrep -c ' lm ' /proc/cpuinfo
 # Instalación
