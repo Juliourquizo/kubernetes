@@ -209,3 +209,27 @@ kubectl get pods -w
 kubectl apply pod_liveness.yaml
 kubectl get pods -w
 ```
+## Despliegues all_together
+
+Montar el volumen de minikube
+
+```bash
+minikube mount /home/endika/data/:/data/html
+```
+### Several files
+```bash
+kubectl apply -f .
+```
+
+### One file
+En este caso se crea un namespace para todo lo creado y se le pone labels
+
+```bash
+kubectl apply -f full_nginx.yaml
+```
+
+Borrar lo creado con one_file
+
+```bash
+kubectl delete all -l app=nginx -n full-nginx
+```
