@@ -40,3 +40,5 @@ minikube start --driver=kvm2 --insecure-registry "192.168.39.0/24"
 docker tag nombre_imagen http://minikube_ip:5000/nombre_imagen
 docker push http://minikube_ip:5000/nombre_imagen
 ```
+
+7. Desde los ficheros yaml habrá que hacer referencia a la imagen con `localhost:5000/nombre_imagen`

@@ -17,7 +17,7 @@
   sudo apt-get install git
 ```
 5. Instalar Visual Studio Code (desde el centro de software de Ubuntu)
-6. Bajar e instalar el binario de Terraform. [Descargar](https://www.terraform.io/downloads.html)
+6. Instalar el binario de Terraform. [Guía](https://github.com/evtsrc/cloud/blob/main/README.md)
 7. Instalar Docker. [Guía](https://docs.docker.com/engine/install/ubuntu/).
    * Si se quiere ejecutar el comando `docker` sin sudo seguir el paso 2 del siguiente [manual](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es). (reiniciar para que coja los cambios)
 8. Instalar docker compose. [Guía](https://docs.docker.com/compose/install/)
