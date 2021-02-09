@@ -65,7 +65,7 @@ $ minikube start --driver=kvm2
 🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
-12. Instalar entornos virtuales de python 
+13. Instalar entornos virtuales de python 
 
 ```bash
 sudo apt-get install python3-venv
