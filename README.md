@@ -18,10 +18,11 @@
 ```
 5. Instalar Visual Studio Code (desde el centro de software de Ubuntu)
 6. Instalar el binario de Terraform. [Guía](https://github.com/evtsrc/cloud/blob/main/README.md)
-7. Instalar Docker. [Guía](https://docs.docker.com/engine/install/ubuntu/).
+7. Instalar asciinema. [Guía](https://asciinema.org/docs/installation)
+8. Instalar Docker. [Guía](https://docs.docker.com/engine/install/ubuntu/).
    * Si se quiere ejecutar el comando `docker` sin sudo seguir el paso 2 del siguiente [manual](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-es). (reiniciar para que coja los cambios)
-8. Instalar docker compose. [Guía](https://docs.docker.com/compose/install/)
-9. Instalar kvm
+9. Instalar docker compose. [Guía](https://docs.docker.com/compose/install/)
+10. Instalar kvm
 ```bash
 # Ejecutar los siguientes comandos. Tienen que dar diferente de 0 ambos
 egrep -c '(vmx|svm)' /proc/cpuinfo
@@ -37,9 +38,9 @@ virsh list --all
 ```
 > Referencia: [link](https://help.ubuntu.com/community/KVM/Installation)
 
-10. Instalar minikube. [Guía](https://minikube.sigs.k8s.io/docs/start/)
+11. Instalar minikube. [Guía](https://minikube.sigs.k8s.io/docs/start/)
     * Utilizar paquete Debian. **Solo hasta el paso 2**
-11. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
+12. Instalar kubectl. [Guía](https://kubernetes.io/docs/tasks/tools/install-kubectl/). 
 > **Ojo con las versiones en este último paso, leer bien la guía. 
 > Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes.
 > En el siguiente ejemplo se está utilizando Kubernetes 1.20.0 (símbolo de la ballena)** 
