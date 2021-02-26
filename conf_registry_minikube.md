@@ -24,7 +24,7 @@ sudo vi /etc/docker/daemon.json
 4. Reiniciar el servicio de docker
 
 ```bash
-sudo systemctl restart docker.services
+sudo systemctl restart docker.service
 ```
 
 5. Parar  minikube y arrancarlo añadiendo el parámetro de insecure-registry con una ip y máscara que nos permita conectarnos con el registry interno
