@@ -5,7 +5,7 @@
 1. Instalar **uno** de los siguietes softwares de Virtualización
     * Descargar e instalar VMware Workstation 16 Player. [Descargar](https://www.vmware.com/es/products/workstation-player/workstation-player-evaluation.html)
         * Si se pide la instalación de WMware Tools hacerlo.
-    * Descargar e instalar VirtualBox. [Descargar] (https://www.virtualbox.org/wiki/Downloads)
+    * Descargar e instalar VirtualBox. [Descargar](https://www.virtualbox.org/wiki/Downloads)
         * Instalar las Guest Additions cuando arranquemos el sistema.
 2. Descargar la imagen de Ubuntu Desktop 20.04 LTS. [Descargar](https://releases.ubuntu.com/20.04/)
 3. Instalar Ubuntu en una máquina virtual:
