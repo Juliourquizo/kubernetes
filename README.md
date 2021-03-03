@@ -2,7 +2,7 @@
 
 ## Prerequisitos
 
-1. Instalar software de Virtualización
+1. Instalar **uno** de los siguietes softwares de Virtualización
     * Descargar e instalar VMware Workstation 16 Player. [Descargar](https://www.vmware.com/es/products/workstation-player/workstation-player-evaluation.html)
         * Si se pide la instalación de WMware Tools hacerlo.
     * Descargar e instalar VirtualBox. [Descargar] (https://www.virtualbox.org/wiki/Downloads)
