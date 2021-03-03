@@ -24,11 +24,9 @@
 
 Llegados a este punto tienes varias opciones opciones:
 
-[VMWare Worstation + KVM](#opcion-a)
-
-[VMWare Worstation + Docker](#opcion-b)
-
-[VirtualBox + Docker](#opcion-c)
+* [VMWare Worstation + KVM](#opcion-a)
+* [VMWare Worstation + Docker](#opcion-b)
+* [VirtualBox + Docker](#opcion-c)
 
 ## OPCION A
 
