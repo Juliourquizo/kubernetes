@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-svc
   namespace: full-nginx
   labels:
     app: nginx
@@ -14,7 +14,7 @@ spec:
   type: LoadBalancer
   sessionAffinity: ClientIP
   selector:
-    app: nginx
+    app: nginx-p
   ports:
   - protocol: TCP
     port: 60000
@@ -59,18 +59,18 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-p
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-p
     spec:
       volumes:
       - name: task-pv-storage
         persistentVolumeClaim:
           claimName: task-pv-claim
       containers:
-      - name: nginx
+      - name: nginx-c
         image: nginx:1.7.9
         resources:
           limits:
