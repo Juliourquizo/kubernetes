@@ -92,9 +92,6 @@ $ minikube start --driver=kvm2
 ```bash
 $ minikube start
 😄  minikube v1.17.1 en Ubuntu 20.04
-🎉  minikube 1.18.1 is available! Download it: https://github.com/kubernetes/minikube/releases/tag/v1.18.1
-💡  To disable this notice, run: 'minikube config set WantUpdateNotification false'
-
 ✨  Automatically selected the docker driver. Other choices: kvm2, ssh
 👍  Starting control plane node minikube in cluster minikube
 🚜  Pulling base image ...
@@ -124,9 +121,6 @@ $ minikube start
 ```bash
 $ minikube start
 😄  minikube v1.17.1 en Ubuntu 20.04
-🎉  minikube 1.18.1 is available! Download it: https://github.com/kubernetes/minikube/releases/tag/v1.18.1
-💡  To disable this notice, run: 'minikube config set WantUpdateNotification false'
-
 ✨  Automatically selected the docker driver. Other choices: kvm2, ssh
 👍  Starting control plane node minikube in cluster minikube
 🚜  Pulling base image ...
