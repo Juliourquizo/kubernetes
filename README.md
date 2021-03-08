@@ -122,7 +122,7 @@ $ minikube start
 > Para saber la versión de kubernetes instalada arrancar y fijarse en los mensajes.
 > En el siguiente ejemplo se está utilizando Kubernetes 1.20.0 (símbolo de la ballena)** 
 ```bash
-$ minikube start --driver=kvm2
+$ minikube start
 😄  minikube v1.16.0 on Ubuntu 20.04
 ✨  Using the kvm2 driver based on user configuration
 💾  Downloading driver docker-machine-driver-kvm2:
