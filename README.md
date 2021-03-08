@@ -92,7 +92,7 @@ $ minikube start --driver=kvm2
 ```bash
 $ minikube start
 😄  minikube v1.17.1 en Ubuntu 20.04
-✨  Using the docker driver based on existing profile
+✨  Automatically selected the docker driver. Other choices: kvm2, ssh
 👍  Starting control plane node minikube in cluster minikube
 🔄  Restarting existing docker container for "minikube" ...
 🐳  Preparando Kubernetes v1.20.2 en Docker 20.10.2...
@@ -116,7 +116,7 @@ $ minikube start
 ```bash
 $ minikube start
 😄  minikube v1.17.1 en Ubuntu 20.04
-✨  Using the docker driver based on existing profile
+✨  Automatically selected the docker driver. Other choices: kvm2, ssh
 👍  Starting control plane node minikube in cluster minikube
 🔄  Restarting existing docker container for "minikube" ...
 🐳  Preparando Kubernetes v1.20.2 en Docker 20.10.2...
