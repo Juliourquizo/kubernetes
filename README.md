@@ -138,8 +138,6 @@ $ minikube start
 🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 ```
 
-13. Instalar entornos virtuales de python 
+# Si quieres aprovechar...
 
-```bash
-sudo apt-get install python3-venv
-```
+Puedes seguir con la preparación de tu máquina de trabajo realizando los pasos de instalación para la [siguiente práctica](https://github.com/evtsrc/faas/blob/main/README.md).
