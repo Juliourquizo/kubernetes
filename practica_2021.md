@@ -29,8 +29,8 @@ Arrancar los contenedores creados en la anterior parte del laboratorio en pods s
 * Configurar un test de **liveness** de tipo http que:
     * empieze con un delay de 40 segundos
     * se compruebe cada 70 segundos
-    * de error en el segundo chequeo
+    * no se reinicie hasta el segundo chequeo
 
-Hay algunas mejoras que se pueden incluir. Te proponemos alguna:
+Hay algunas mejoras que se pueden incluir. Te proponemos alguna por si quisieras investigar:
 * Inicialización de la base de datos.
 * Control para que el pod de la aplicación no arranque si no existe el pod de MySQL.
