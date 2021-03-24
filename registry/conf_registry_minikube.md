@@ -46,8 +46,8 @@ docker push http://minikube_ip:5000/nombre_imagen
 
 7. Desde los ficheros yaml habrá que hacer referencia a la imagen con `localhost:5000/nombre_imagen`
 
-<img src="../img/siren-2859791.svg" alt="drawing" width="70"/>
 
-> **NOTA IMPORTANTE:** El registry no es persistente, por lo que cada vez que pares minikube se perderá la imagen subida. Tendrás que volverla a subir cada vez que arranques el cluster de minikube
+
+> <img src="../img/siren-2859792.svg" width="50px"/> **NOTA IMPORTANTE:** El registry no es persistente, por lo que cada vez que pares minikube se perderá la imagen subida. Tendrás que volverla a subir cada vez que arranques el cluster de minikube
 
 
