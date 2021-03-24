@@ -34,7 +34,7 @@ Llegados a este punto tienes varias opciones opciones:
 
 10. Parar la máquina virtual y configurar la siguiente opción en la configuración de VMWare Workstation:
    
-   ![alt text](./vmware_conf_1.png "VMWare Configuration")
+   ![alt text](./img/vmware_conf_1.png "VMWare Configuration")
 
 11. Instalar kvm
 ```bash
