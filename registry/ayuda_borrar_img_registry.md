@@ -15,7 +15,7 @@ curl -v -H "Accept: application/vnd.docker.distribution.manifest.v2+json" -X DEL
 
 ## Lanzar el recolector de basura
 
-Entrar en el contenedor de docker del registry, crear el fichero `kk.yaml` y ejecutar el comando del recolector de basura.
+Entrar en el contenedor de docker del registry, crear el fichero `kk.yaml` y ejecutar el comando del recolector de basura. Por cierto, por si no había quedado claro, ten en cuenta que estos comandos tienen puesto el id de la imagen en el caso de un ordenador en concreto, sustituye el id con el que corresponda de tu instalación:
 
 ```bash
 eval $(minikube docker-env)

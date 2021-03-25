@@ -117,7 +117,7 @@ kubectl delete service hello-svc -n test-servicios
 
 ## Almacenamiento
 
-Para poder probar la creación de volúmenes lo que vamos a tener que hacer es crear un directorio que se llame html y crear dentro un index.html con un texto de prueba
+Para poder probar la creación de volúmenes lo que vamos a tener que hacer es crear un directorio que se llame html y crear dentro un index.html con un texto de prueba. **No copies y pegues los comandos sin pensar**. Fíjate que la creación del directorio está en una home que no es de tu instalación de ubuntu.
 ```bash
 mkdir /home/endika/data
 cd /home/endika/data
