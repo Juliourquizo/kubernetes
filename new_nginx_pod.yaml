@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  namespace: miotrospace
   name: new-nginx
   labels:
     name: new-nginx
@@ -10,3 +11,4 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
+
