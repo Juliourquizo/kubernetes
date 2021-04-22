@@ -13,7 +13,7 @@ minikube ip
 3. Modificar/crear el fichero del daemon de docker para aceptar conexiones a registros inseguros, configurandolo con la ip de minikube
 
 ```bash
-sudo vi /etc/docker/daemon.json 
+sudo gedit /etc/docker/daemon.json 
 ```
 ```json
 {
