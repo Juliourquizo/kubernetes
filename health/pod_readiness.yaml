@@ -11,7 +11,7 @@ spec:
     args:
     - /bin/sh
     - -c
-    - sleep 60; touch /tmp/healthy; sleep 20; rm -rf /tmp/healthy; sleep 600
+    - sleep 40; touch /tmp/healthy; sleep 10; rm -rf /tmp/healthy; sleep 600
     readinessProbe:
       exec:
         command:
