@@ -92,6 +92,15 @@ kubectl get pods -A -l app=nginx
 kubectl delete deployment nginx-deployment
 ```
 
+### :clipboard: Ejercicio 2
+
+> Borrar lo creado anteriormente. Crear un deployment igual pero con 2 réplicas y cambiando el selector para que el key sea `front` y el valor `end`. 
+> 
+> Cambia además la estrategia en la que se realizan los cambios de versión para que sea del tipo `recreate`.
+>
+> Una vez desplegado haz un cambio en la versión de la imagen de nginx para subir a la versión `1.20.2`. No modificar el yaml si no lo que ya está desplegado. Para ello tendrás que utilizar el comando `kubectl set image` añadiendo más parámetros. Cuando lo hayas conseguido fijate bien cómo reinician los pods. ¿de uno en uno?
+> Cuando lo hayas cambiado intenta utilizar el comando `kubectl rollout` para ver el historial de cambios y después para volver fácilmente a la versión anterior
+
 ## Servicios
 
 ### ClusterIP
