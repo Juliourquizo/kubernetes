@@ -58,7 +58,7 @@ kubectl delete namespaces first-namespace
 kubectl delete pod new-nginx
 ```
 
-> **Ejercicio 1**
+> :clipboard: **Ejercicio 1**
 >
 > Despliega un pod con un contenedor que se cree desde una imagen llamada busybox con el nombre `caja` en un namespace que se llame `spacebox`. 
 >
