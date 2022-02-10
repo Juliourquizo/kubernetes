@@ -53,6 +53,10 @@ kubectl delete pod new-nginx -n first-namespace
 kubectl delete namespaces first-namespace
 ```
 
+> Ahora prueba tú
+>
+
+
 ### Borrar el pod
 ```bash
 kubectl delete pod new-nginx
