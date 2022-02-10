@@ -58,16 +58,15 @@ kubectl delete namespaces first-namespace
 kubectl delete pod new-nginx
 ```
 
-> :clipboard: **Ejercicio 1**
->
-> Despliega un pod con un contenedor que se cree desde una imagen llamada busybox con el nombre `caja` en un namespace que se llame `spacebox`. 
->
-> Tiene que tener una variable de entorno que se llame `miVar` y que su valor sea "`Estoy dentro`". Además tiene que tener una etiqueda que sea `version` con el valor `0.1`
-> 
-> Intenta entrar dentro de ese contenedor para ver si se ha creado bien la variable de entorno.
->
-> **¡OJO!** La imagen de busybox "no hace nada", así que si no haces algo para que se mantenga arrancada, no conseguirás avanzar con el ejercicio. También tendrás que investigar cómo acceder al contenedor utilizando el comando `kubectl`.
+### :clipboard: Ejercicio 1
 
+Despliega un pod con un contenedor que se cree desde una imagen llamada busybox con el nombre `caja` en un namespace que se llame `spacebox`. 
+
+Tiene que tener una variable de entorno que se llame `miVar` y que su valor sea "`Estoy dentro`". Además tiene que tener una etiqueda que sea `version` con el valor `0.1`
+
+Intenta entrar dentro de ese contenedor para ver si se ha creado bien la variable de entorno.
+
+**¡OJO!** La imagen de busybox "no hace nada", así que si no haces algo para que se mantenga arrancada, no conseguirás avanzar con el ejercicio. También tendrás que investigar cómo acceder al contenedor utilizando el comando `kubectl`.
 
 ## Deployment
 
