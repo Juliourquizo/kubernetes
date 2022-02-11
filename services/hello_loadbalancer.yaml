@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: hello-svc
 spec:
+  type: LoadBalancer
   selector:
     name: hello-v1
   ports:
-    - port: 8080
-      targetPort: 8080
-  type: LoadBalancer
+  - port: 8080
+    targetPort: 8080

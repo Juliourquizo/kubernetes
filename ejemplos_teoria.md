@@ -94,12 +94,15 @@ kubectl delete deployment nginx-deployment
 
 ### :clipboard: Ejercicio 2
 
-> Borrar lo creado anteriormente. Crear un deployment igual pero con 2 réplicas y cambiando el selector para que el key sea `front` y el valor `end`. 
+> Borra lo que hayas creado anteriormente. 
+>
+> Crear un deployment igual que el de nginx visto en clase pero con 2 réplicas y cambiando el selector para que la key sea `front` y el valor `end`. 
 > 
 > Cambia además la estrategia en la que se realizan los cambios de versión para que sea del tipo `recreate`.
 >
-> Una vez desplegado haz un cambio en la versión de la imagen de nginx para subir a la versión `1.20.2`. No modificar el yaml si no lo que ya está desplegado. Para ello tendrás que utilizar el comando `kubectl set image` añadiendo más parámetros. Cuando lo hayas conseguido fijate bien cómo reinician los pods. ¿de uno en uno?
-> Cuando lo hayas cambiado intenta utilizar el comando `kubectl rollout` para ver el historial de cambios y después para volver fácilmente a la versión anterior
+> Una vez desplegado haz un cambio en la versión de la imagen de nginx para subir a la versión `1.20.2`. **No modifiques el yaml**, modifica lo que ya está desplegado. Para ello tendrás que utilizar el comando `kubectl set` añadiendo más parámetros. Cuando lo hayas conseguido fijate bien cómo reinician los pods ¿de uno en uno? ¿todos a la vez? Investiga las diferencias que existen entre una estrategia de rollout de tipo `Recreate` y uno de tipo `RollingUpdate`.
+>
+> Si has conseguido cambiarlo, intenta utilizar el comando [`kubectl rollout`](https://jamesdefabia.github.io/docs/user-guide/kubectl/kubectl_rollout/) para ver el historial de cambios del deployment e intenta volver a la versión anterior sin realizar ningún cambio.
 
 ## Servicios
 
@@ -114,6 +117,7 @@ kubectl get svc -n test-servicios
 kubectl run -i --tty --rm debug --image=alpine --restart=Never -n test-servicios -- wget -qO - hello-svc:80
 kubectl delete service hello-svc -n test-servicios
 ```
+> Analiza el comando que hemos ejecutado para probarlo ¿Qué hace? ¿Cómo comprueba que la conexión funciona?
 
 ### NodePort
 ```bash
@@ -121,6 +125,8 @@ kubectl apply -f hello_nodeport.yaml -n test-servicios
 kubectl get services -n test-servicios
 # Comprobar que funciona desde fuera del cluster pero en el nodo
 docker exec -it minikube curl http://localhost:30100
+# Otra opción de prueba utilizando minikube
+minikube service hello-svc -n test-servicios
 kubectl delete service hello-svc -n test-servicios
 ```
 
@@ -130,41 +136,37 @@ kubectl apply -f hello_loadbalancer.yaml -n test-servicios
 kubectl get services -n test-servicios
 kubectl describe service hello-svc -n test-servicios
 # Comprobar que funciona sin entrar la cluster
-minikube service hello-svc -n test-servicios
+minikube tunnel
 kubectl delete service hello-svc -n test-servicios
 ```
 
+### :clipboard: Ejercicio 3
+
+> Crea un deployment en un namespace llamado `clasterype` con un contenedor de [nginx](https://hub.docker.com/_/nginx) y con el parámetro `containerPort` con el valor `81`. Deberá estar configurado para tener 2 réplicas.
+> Cuando tengas el deployment listo, crea un servicio de tipo `ClusterIp` que exponga el contenedor de nginx en el puerto `80`. Comprueba a ver si funciona el servicio desde dentro del cluster ¿No funciona? Intenta descubrir por qué no funciona. Haz las modificaciones necesarias utilizando el comando [`kubectl edit`](https://jamesdefabia.github.io/docs/user-guide/kubectl/kubectl_edit/)
+>  
+> Una vez hayas conseguido que funcione el servicio de tipo `ClusterIp` bórralo y crea un servicio de tipo `Nodeport` con los parámetros necesarios para que funcione. No le asignes un `nodePort` para que lo haga automáticamente minikube. Una vez creado, consulta qué puerto te ha asignado para hacer la prueba con el comando `docker exec`
+> 
+> Si ya has conseguido lo anterior. Borra el servicio de tipo `NodePort` y crea uno de tipo `LoadBalancer` que exponga el servicio en el puerto 8080. Antes de ejecutar el comando `minikube tunnel` para probarlo lista los servicios creados y fíjate bien en los datos que aparecen. Ejecuta `minikube tunnel`, prueba que funciona y vuelve a listar los servicios. ¿Qué diferencias hay?
+
+
 ## Almacenamiento
 
-Para poder probar la creación de volúmenes lo que vamos a tener que hacer es crear un directorio que se llame html y crear dentro un index.html con un texto de prueba. **No copies y pegues los comandos sin pensar**. Fíjate que la creación del directorio está en una home que no es de tu instalación de ubuntu.
-```bash
-mkdir /home/endika/data
-cd /home/endika/data
-echo "<html><body>Mi html de prueba</body></html>" > index.html
-```
-Puesto que minikube es un docker, dentro hay que montar nuestro directorio para que después se tenga acceso. Para ello ejecutar:
-`minikube mount /home/endika/data/:/data/html`
+Recuerda que minikube es un docker, y para que pueda tener acceso dentro del contenedor a ficheros que tengamos en nuestra máquina virtual hay que montar nuestro directorio para que después se tenga acceso. Para ello ejecutar:
+
+`minikube mount dir_maquina_virtual:dir_dentro_minikube`
 
 ### PersistemVolume y PersistenVolumeClaim
-```bash
-kubectl apply -f persistentvolume.yaml
-kubectl get pv
-kubectl apply -f persistentvolumeclaim.yaml
-kubectl get pvc
-kubectl apply -f podwithvolume.yaml
-kubectl expose pod task-pv-pod --type=LoadBalancer --port=80
-minikube service task-pv-pod
-```
 
-Probar a cambiar el html y ver que se ven los cambios.
+### :clipboard: Ejercicio 4
 
-```bash
-# Limpieza
-kubectl delete pod task-pv-pod
-kubectl delete pvc task-pv-claim
-kubectl delete pv task-pv-volume
-kubectl delete service task-pv-pod
-```
+> El objetivo de este ejercicio es tener un pod de nginx levantado que muestre un index.html que podamos modificar desde nuestra máquina virtual para poder ver los cambios en el mismo momento en el que lo hagamos.
+>
+> Para ello tienes que crear un PersistenVolume que utilice un directorio que esté montado en minikube desde nuestra máquina virtual. Crear después un PersistenVolumeClaim y utilizarlo en un contenedor de nginx. No hace falta crear un deployment, solamente un pod.  
+>
+> En la [documentación de la imagen de nginx](https://hub.docker.com/_/nginx) en la sección que explica cómo utilizar la imagen tienes la información necesaria para saber "dónde" debería estar el index.html
+>
+> Para comprobar si funciona expón el servicio utilizando el comando [`kubectl expose`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#expose) utilizando el tipo de servicio que creas conveniente. Y después utiliza el comando `minikube service`.
 
 ## Autoescalado
 
