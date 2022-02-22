@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - Tipo_de_acceso
   resources:
     requests:
-      storage: 3Gi
+      storage: tamaño_del_claim

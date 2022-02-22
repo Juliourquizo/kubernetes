@@ -31,10 +31,8 @@ sudo systemctl restart docker.service
 
 ```bash
 minikube stop
-# Si utilizas kvm
-minikube start --driver=kvm2 --insecure-registry "192.168.39.0/24"
 # Si utilizas docker
-minikube start --insecure-registry "192.168.39.0/24"
+minikube start --insecure-registry "[tu_ip]/24"
 ```
 
 6. Para subir una imagen al registry tendremos que hacer un tag de nuestra imagen con la ip de minikube y el puerto de conexión. Después podemos hacer el push

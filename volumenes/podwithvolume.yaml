@@ -6,15 +6,15 @@ metadata:
     app: task-pv-pod
 spec:
   volumes:
-    - name: task-pv-storage
+    - name: nombre_del_volumen
       persistentVolumeClaim:
-        claimName: task-pv-claim
+        claimName: nombre_del_claim
   containers:
-    - name: task-pv-container
-      image: nginx
+    - name: ...
+      image: ...
       ports:
-        - containerPort: 80
-          name: "http-server"
+        - containerPort: XX
+          name: "..."
       volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
-          name: task-pv-storage
+        - mountPath: "donde lo voy a montar"
+          name: nombre_del_volumen_a_montar

@@ -7,8 +7,8 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 5Gi
+    storage: tamaño_del_volumen
   accessModes:
-    - ReadWriteOnce
+    - Tipo_de_acceso
   hostPath:
-    path: /data/html/
+    path: Path_del_host
