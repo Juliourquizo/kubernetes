@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-pv-pod
+  labels: 
+    app: task-pv-pod
+spec:
+  volumes:
+    - name: nombre_del_volumen
+      persistentVolumeClaim:
+        claimName: nombre_del_claim
+  containers:
+    - name: ...
+      image: ...
+      ports:
+        - containerPort: XX
+          name: "..."
+      volumeMounts:
+        - mountPath: "donde lo voy a montar"
+          name: nombre_del_volumen_a_montar
