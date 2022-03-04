@@ -215,6 +215,29 @@ kubectl delete hpa nginx-autoscaler
 kubectl delete deployment nginx-deployment 
 ```
 
+## Rollback
+
+```bash
+# Realizar el despliegue
+kubectl apply -f nginx_deployment.yaml
+# Cambiar el número de replicas de 1 a 2
+kubectl edit deployment nginx-deployment --record
+# Ver el historial de cambios
+kubectl rollout history deployment nginx-deployment
+# Ver cambios específicos
+kubectl rollout history deployment nginx-deployment --revision=2
+# Cambiar la memoria de 64 a 128
+kubectl edit deployment nginx-deployment --record
+# Volver a la versión inicial
+kubectl rollout deployment nginx-deployment --to-revision=1
+```
+
+### :clipboard: Ejercicio 5
+
+> El objetivo de este ejercicio es tener crear un deploy con el comando `kubectl create deploy...` de una imagen llamada `ghost` activando la opción de grabar revisiones.
+>
+> Una vez desplegado cambiar la configuración con el comando [`kubectl set image`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-image-em-) para modificar la imagen por `ghost:09`. Una vez hecho el cambio comprobar que da error, listar las revisiones disponibles y volver a la revisión anterior.
+
 ## Supervisión
 
 ### Readiness
