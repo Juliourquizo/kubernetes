@@ -217,26 +217,35 @@ kubectl delete deployment nginx-deployment
 
 ## Rollback
 
+Desplegar un nginx y modificar:
+* El número de réplicas
+* La memoria
+* Volver a la revisión 1
+
 ```bash
 # Realizar el despliegue
-kubectl apply -f nginx_deployment.yaml
+kubectl apply -f nginx_deployment.yaml --record
 # Cambiar el número de replicas de 1 a 2
 kubectl edit deployment nginx-deployment --record
+kubectl annotate deployments.apps nginx-deployment kubernetes.io/change-cause="Cambio en las replicas de 1 a 2"
 # Ver el historial de cambios
 kubectl rollout history deployment nginx-deployment
-# Ver cambios específicos
-kubectl rollout history deployment nginx-deployment --revision=2
+# Ver detalle de un rollout específico
+kubectl rollout history deployment nginx-deployment --revision=1
 # Cambiar la memoria de 64 a 128
 kubectl edit deployment nginx-deployment --record
-# Volver a la versión inicial
-kubectl rollout deployment nginx-deployment --to-revision=1
+# Volver a la versión 1
+kubectl rollout undo deployment nginx-deployment --to-revision=1
 ```
 
 ### :clipboard: Ejercicio 5
 
 > El objetivo de este ejercicio es tener crear un deploy con el comando `kubectl create deploy...` de una imagen llamada `ghost` activando la opción de grabar revisiones.
 >
-> Una vez desplegado cambiar la configuración con el comando [`kubectl set image`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-image-em-) para modificar la imagen por `ghost:09`. Una vez hecho el cambio comprobar que da error, listar las revisiones disponibles y volver a la revisión anterior.
+> Una vez desplegado cambiar la configuración con el comando [`kubectl set image`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-image-em-) para modificar la imagen por `ghost:09`. Anotar el cambio con el texto "Cambio de versión de la imagen". 
+> Comprobar que el cambio da error, listar las revisiones disponibles y volver a la revisión anterior.
+>
+> Busca cómo podrías cambiar el número de revisiones que se almacenan en el historial de un despliegue (por defecto es 10).
 
 ## Supervisión
 
