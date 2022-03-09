@@ -136,6 +136,7 @@ kubectl apply -f hello_loadbalancer.yaml -n test-servicios
 kubectl get services -n test-servicios
 kubectl describe service hello-svc -n test-servicios
 # Comprobar que funciona sin entrar la cluster
+# Con minikube tunnel hay que fijarse en la ip externa que nos asigna en el listado de servicios
 minikube tunnel
 kubectl delete service hello-svc -n test-servicios
 ```
@@ -147,7 +148,7 @@ kubectl delete service hello-svc -n test-servicios
 >  
 > Una vez hayas conseguido que funcione el servicio de tipo `ClusterIp` bórralo y crea un servicio de tipo `Nodeport` con los parámetros necesarios para que funcione. No le asignes un `nodePort` para que lo haga automáticamente minikube. Una vez creado, consulta qué puerto te ha asignado para hacer la prueba con el comando `docker exec`
 > 
-> Si ya has conseguido lo anterior. Borra el servicio de tipo `NodePort` y crea uno de tipo `LoadBalancer` que exponga el servicio en el puerto 8080. Antes de ejecutar el comando `minikube tunnel` para probarlo lista los servicios creados y fíjate bien en los datos que aparecen. Ejecuta `minikube tunnel`, prueba que funciona y vuelve a listar los servicios. ¿Qué diferencias hay?
+> Si ya has conseguido lo anterior. Borra el servicio de tipo `NodePort` y crea uno de tipo `LoadBalancer` que exponga el servicio en el puerto 8080. Antes de ejecutar el comando `minikube tunnel` para probarlo, lista los servicios creados y fíjate bien en los datos que aparecen. Ejecuta `minikube tunnel`, vuelve a listar los servicios. ¿Qué diferencias hay? Prueba a ver si funciona
 
 
 ## Almacenamiento
