@@ -60,9 +60,9 @@ kubectl delete pod new-nginx
 
 ### :clipboard: Ejercicio 1
 
-> Despliega un pod con un contenedor que se cree desde una imagen llamada busybox con el nombre `caja` en un namespace que se llame `spacebox`. 
+> Despliega un pod con un contenedor que se cree desde una imagen llamada busybox con el nombre `caja` en un namespace que se llame "`espeisbox`". 
 > 
-> Tiene que tener una variable de entorno que se llame `miVar` y que su valor sea "`Estoy dentro`". Además tiene que tener una etiqueda que sea `version` con el valor `0.1`
+> Tiene que tener una variable de entorno que se llame `miVar` y que su valor sea "`Estoy dentro`". Además tiene que tener una etiqueta que sea `version` con el valor `0.1`
 > 
 > Intenta entrar dentro de ese contenedor para ver si se ha creado bien la variable de entorno.
 > 
@@ -101,8 +101,6 @@ kubectl delete deployment nginx-deployment
 > Cambia además la estrategia en la que se realizan los cambios de versión para que sea del tipo `recreate`.
 >
 > Una vez desplegado haz un cambio en la versión de la imagen de nginx para subir a la versión `1.20.2`. **No modifiques el yaml**, modifica lo que ya está desplegado. Para ello tendrás que utilizar el comando `kubectl set` añadiendo más parámetros. Cuando lo hayas conseguido fijate bien cómo reinician los pods ¿de uno en uno? ¿todos a la vez? Investiga las diferencias que existen entre una estrategia de rollout de tipo `Recreate` y uno de tipo `RollingUpdate`.
->
-> Si has conseguido cambiarlo, intenta utilizar el comando [`kubectl rollout`](https://jamesdefabia.github.io/docs/user-guide/kubectl/kubectl_rollout/) para ver el historial de cambios del deployment e intenta volver a la versión anterior sin realizar ningún cambio.
 
 ## Servicios
 
