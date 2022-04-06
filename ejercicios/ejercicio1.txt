@@ -1,0 +1,18 @@
+# Estos son los comandos a ejecutar para realizar el ejercicio
+
+# crear namespace
+kubectl create ns espeisbox
+
+# Desplegar el pod en el namespace
+kubectl apply -f ejercicio1.yaml
+
+# Comprobar que el label está bien
+kubectl -n espeisbox describe pod caja | grep version
+
+# Acceder al contenedor para ver la variable
+kubectl -n espeisbox exec -it caja -- /bin/sh
+echo $miVar
+
+# Limpieza
+kubectl -n espeisbox delete pod caja
+kubectl delete ns espeisbox

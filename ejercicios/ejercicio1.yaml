@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  # La creación del objeto se realizará en el namespace especificado
+  namespace: espeisbox
+  name: caja
+  labels:
+    # Configuración de las etiquetas solicitadas
+    name: caja
+    version: "0.1"
+spec:
+  containers:
+  - name: caja
+    image: busybox
+    # Para poder dejar la imagen de busybox arrancada se configura
+    # que en el arranque se ejecute el comando sleep que hace una pausa
+    # y configuramos esa pausa para que dure 3600 segundos
+    command:
+      - sleep
+      - "3600"
+    # Definición de la variable de entorno
+    env:
+    - name: miVar
+      value: "Estoy dentro"
