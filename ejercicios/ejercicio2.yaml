@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  # Configuración del número de réplicas
+  replicas: 2
+  # Configuración de la estrategia de actualizazación a Recreate
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      # Cambio del label. Esto implica un cambio en los labels de la template del pod
+      front: end
+  template:
+    metadata:
+      labels:
+        front: end
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+

@@ -1,0 +1,11 @@
+# Aplicar el yaml
+kubectl apply -f ejercicio2.yaml
+
+# Cambiar la versión de nginx
+kubectl set image deployment/nginx-deployment nginx=nginx:1.20.2
+
+# Ver cómo se caen los 2 a la vez
+kubectl get pods -w
+
+# Limpieza
+kubectl delete deployments.apps nginx-deployment
