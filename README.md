@@ -2,7 +2,7 @@
 
 ## Prerequisitos
 
-Descargar la imagen de Ubuntu para importarla en VirtualBox [Descargar](https://drive.google.com/file/d/17dI5sOsgoBoYH78P7VoDhdJl_6OSIGqY/view?usp=sharing)
+Descargar la imagen de Ubuntu para importarla en VirtualBox [Descargar]https://drive.google.com/file/d/1LxLfw0AXCPWd0Wgf4oimbP2AnwwnidlB/view?usp=sharing)
 
 Una vez importada la imagen ejecutar `minikube start`
 

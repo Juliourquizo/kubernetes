@@ -100,7 +100,7 @@ kubectl delete deployment nginx-deployment
 > 
 > Cambia además la estrategia en la que se realizan los cambios de versión para que sea del tipo `recreate`.
 >
-> Una vez desplegado haz un cambio en la versión de la imagen de nginx para subir a la versión `1.20.2`. **No modifiques el yaml**, modifica lo que ya está desplegado. Para ello tendrás que utilizar el comando `kubectl set` añadiendo más parámetros. Cuando lo hayas conseguido fijate bien cómo reinician los pods ¿de uno en uno? ¿todos a la vez? Investiga las diferencias que existen entre una estrategia de rollout de tipo `Recreate` y uno de tipo `RollingUpdate`.
+> Una vez desplegado haz un cambio en la versión de la imagen de nginx para subir a la versión `1.20.2`. **No modifiques el yaml**, modifica lo que ya está desplegado. Para ello tendrás que utilizar el comando `kubectl set` añadiendo más parámetros. Cuando lo hayas conseguido fíjate bien cómo reinician los pods ¿de uno en uno? ¿todos a la vez? Investiga las diferencias que existen entre una estrategia de rollout de tipo `Recreate` y uno de tipo `RollingUpdate`.
 
 ## Servicios
 
