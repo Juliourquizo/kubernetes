@@ -72,7 +72,11 @@ Hay algunas mejoras que se pueden incluir. Te proponemos alguna por si quisieras
 ## Entregables
 
 1. Entregar en un paquete tar comprimido con tu nombre y apellido (p.e. NombreApellido.tar.gz) que contenga:
-   * los yaml de definición de todos los objetos pedidos en el enunciado. 
+   * los yaml de definición de todos los objetos pedidos en el enunciado.
+   * Un pantallazo de la página que se carga accediendo a apache y que muestra el resultado de la consulta a bbdd. En el pantallazo tiene que aparecer la barra de direcciones y el resultado tendría que ser este
+  <br><br>
+    ![result.png](result.png)
+
    * un fichero grabado con `asciinema` en el que se vea cómo se consulta lo siguiente:
      * listado de servicios
      * listado de deployments
@@ -80,6 +84,10 @@ Hay algunas mejoras que se pueden incluir. Te proponemos alguna por si quisieras
      * listado de pods
      * descripción del pod de base de datos
      * descripción del deployment de la aplicación 
+     * ejecutar el siguiente comando (antes tendrás que instalar `jq`) 
+     ```sh
+     wget -qO - http://ip_acceso:8080/app/getenv | jq .
+     ```
 
 2. En caso de creerlo conveniente, añadir un fichero README.txt con lo que se quiera comentar: comandos de despliegue, configuraciones a tener en cuenta, problemas encontrados y soluciones, etc.
 
