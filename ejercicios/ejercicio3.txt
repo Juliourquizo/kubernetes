@@ -1,0 +1,40 @@
+kubectl apply -f ejercicio3.yaml
+
+# Realizar los cambios en los puertos correspondientes
+kubectl -n clasterype edit deployments.apps nginx-deployment
+kubectl -n clasterype edit svc nginx-svc
+
+# Probar levantando un POD dentro del cluster
+kubectl run -it --rm debug --image=alpine --restart=Never -n clasterype -- wget -qO - nginx-svc:80
+
+# Borrar servicio
+kubectl -n clasterype delete svc nginx-svc
+# Descomentar y comentar los servicios
+kubectl apply -f ejercicio3.yaml
+
+# Consultar puerto de Nodeport
+kubectl -n clasterype get svc
+
+# Probar con un docker exec 
+docker exec -it minikube curl http://localhost:31999
+# Esto no funcionaría
+curl http://localhost:31999
+# Esto sí
+minikube service nginx-svc -n clasterype
+
+# Borrar servicio
+kubectl -n clasterype delete svc nginx-svc
+# Descomentar y comentar los servicios
+kubectl apply -f ejercicio3.yaml
+
+# Consultar el servicio y fijarse en EXTERNAL-IP
+kubectl -n clasterype get svc
+
+# Exponer el servicio
+minikube tunnel
+
+# Consultar el servicio y fijarse en EXTERNAL-IP
+kubectl -n clasterype get svc
+
+# Limpieza
+kubectl delete ns clasterype
