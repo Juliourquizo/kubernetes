@@ -39,7 +39,7 @@ minikube start --insecure-registry "[tu_ip]/24"
 
 ```bash
 docker tag nombre_imagen minikube_ip:5000/nombre_imagen
-docker push http://minikube_ip:5000/nombre_imagen
+docker push minikube_ip:5000/nombre_imagen
 ```
 
 7. Desde los ficheros yaml habrá que hacer referencia a la imagen con `localhost:5000/nombre_imagen`
