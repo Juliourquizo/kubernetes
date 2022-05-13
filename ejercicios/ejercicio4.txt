@@ -1,0 +1,22 @@
+# Crear el index.html
+mkdir /home/student/data
+cd /home/student/data
+echo "<html><body>Mi html de prueba</body></html>" > index.html
+
+# Montar el volumen en minikube
+minikube mount /home/student/data/:/data/html
+
+# Crear objetos
+kubectl apply -f ejercicio4.yaml
+kubectl get pv
+kubectl get pvc
+kubectl expose pod task-pv-pod --type=LoadBalancer --port=80
+minikube service task-pv-pod
+
+# Probar a cambiar el html y ver que se ven los cambios.
+
+# Limpieza
+kubectl delete pod task-pv-pod
+kubectl delete pvc task-pv-claim
+kubectl delete pv task-pv-volume
+kubectl delete service task-pv-pod

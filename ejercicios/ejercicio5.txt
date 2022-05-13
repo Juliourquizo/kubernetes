@@ -1,0 +1,32 @@
+# Despliegue inicial
+kubectl create deploy ghost --image=ghost 
+
+# Fijarse en el change-cause
+kubectl get deployments ghost -o yaml
+deployment.kubernetes.io/revision: "1" 
+kubernetes.io/change-cause: kubectl create deploy ghost --image=ghost --record
+
+# Cambiar a la versión 09
+kubectl set image deployment/ghost ghost=ghost:09 --all
+
+# Anotar el cambio
+kubectl annotate deployments ghost kubernetes.io/change-cause="Cambio de versión de la imagen"
+
+# Consultar el historial
+kubectl rollout history deployment/ghost deployments "ghost":
+REVISION   CHANGE-CAUSE
+1 ​         kubectl create deploy ghost --image=ghost --record
+2          kubectl set image deployment/ghost ghost=ghost:09 --all
+
+# Ver que no arranca
+kubectl get pods
+NAME                    READY  STATUS            RESTARTS  AGE
+ghost-2141819201-tcths  0/1    ImagePullBackOff  0         1m​
+
+# Deshacer el cambio
+kubectl rollout undo deployment/ghost
+kubectl get pods
+
+# Para cambiar el número de réplicas que se guardan de un despliegue añadir en el spec de un deployment
+
+revisionHistoryLimit
